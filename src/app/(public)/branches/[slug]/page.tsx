@@ -175,7 +175,7 @@ export default async function BranchPage({ params }: { params: Promise<{ slug: s
                       </div>
                       
                       <div className="flex items-center gap-4 p-4 bg-surface-container-low rounded-2xl border border-outline-variant/10">
-                        <div className="w-10 h-10 rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all border border-outline-variant/20">
+                        <div className="w-10 h-10 rounded-full overflow-hidden transition-all border border-outline-variant/20">
                            {/* Finding trainer image from TRAINERS array */}
                            <img src={TRAINERS.find(t => t.name === item.trainer)?.image || "/images/avatar.jpg"} alt={item.trainer} className="w-full h-full object-cover" />
                         </div>
@@ -210,7 +210,7 @@ export default async function BranchPage({ params }: { params: Promise<{ slug: s
                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   {branchTrainers.map((trainer) => (
                     <Link href={`/trainers`} key={trainer.name} className="flex gap-8 items-center bg-surface-container-low p-8 rounded-[2rem] group border border-outline-variant/10 hover:border-primary transition-all shadow-xl hover:shadow-primary/5">
-                      <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl overflow-hidden grayscale group-hover:grayscale-0 transition-all shadow-2xl flex-shrink-0 border-2 border-transparent group-hover:border-primary/50 rotate-3 group-hover:rotate-0">
+                      <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-3xl overflow-hidden transition-all shadow-2xl flex-shrink-0 border-2 border-transparent group-hover:border-primary/50 rotate-3 group-hover:rotate-0">
                         <img src={trainer.image} alt={trainer.name} className="w-full h-full object-cover" />
                       </div>
                       <div>

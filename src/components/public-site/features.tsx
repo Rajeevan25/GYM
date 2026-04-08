@@ -15,7 +15,7 @@ export function PublicFeatures() {
         <div className="lg:col-span-2 bg-surface-container rounded-2xl overflow-hidden relative group h-[300px] sm:h-[400px] lg:h-[550px] border border-outline-variant/10">
           <img
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-50"
-            src="/images/feature-1.jpg"
+            src="/images/feature-equipment.png"
             alt="Industrial gym weights"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
@@ -26,28 +26,38 @@ export function PublicFeatures() {
           </div>
         </div>
 
-        <div className="bg-surface-container-high rounded-2xl p-6 sm:p-8 lg:p-12 flex flex-col justify-end border border-outline-variant/10 hover:border-primary/20 transition-all h-[280px] sm:h-[380px] lg:h-[550px] relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-             <span className="material-symbols-outlined text-[6rem] sm:text-[10rem] text-primary">groups</span>
+        <div className="bg-surface-container rounded-2xl overflow-hidden relative group h-[280px] sm:h-[380px] lg:h-[550px] border border-outline-variant/10">
+          <img
+            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-[0.4]"
+            src="/images/feature-trainers.png"
+            alt="Elite Trainers"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 p-6 sm:p-8 lg:p-12 w-full">
+            <span className="material-symbols-outlined text-primary text-5xl sm:text-7xl mb-4 sm:mb-8">groups</span>
+            <h3 className="text-2xl sm:text-4xl font-black italic uppercase tracking-tighter mb-2 sm:mb-4">Elite <br/>Trainers</h3>
+            <p className="text-on-surface-variant text-sm sm:text-lg leading-relaxed font-body hidden sm:block">Certified kinetic architects ready to rebuild your physique from the ground up with scientific precision.</p>
           </div>
-          <span className="material-symbols-outlined text-primary text-5xl sm:text-7xl mb-4 sm:mb-8">groups</span>
-          <h3 className="text-2xl sm:text-4xl font-black italic uppercase tracking-tighter mb-2 sm:mb-4">Elite <br/>Trainers</h3>
-          <p className="text-on-surface-variant text-sm sm:text-lg leading-relaxed font-body hidden sm:block">Certified kinetic architects ready to rebuild your physique from the ground up with scientific precision.</p>
         </div>
 
-        <div className="bg-surface-container-high rounded-2xl p-6 sm:p-8 lg:p-12 flex flex-col justify-end border border-outline-variant/10 hover:border-primary/20 transition-all h-[280px] sm:h-[380px] lg:h-[550px] relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-4 sm:p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-             <span className="material-symbols-outlined text-[6rem] sm:text-[10rem] text-primary">location_on</span>
+        <div className="bg-surface-container rounded-2xl overflow-hidden relative group h-[280px] sm:h-[380px] lg:h-[550px] border border-outline-variant/10">
+          <img
+            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-[0.4]"
+            src="/images/feature-branches.png"
+            alt="Multiple Branches"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 p-6 sm:p-8 lg:p-12 w-full">
+            <span className="material-symbols-outlined text-primary text-5xl sm:text-7xl mb-4 sm:mb-8">location_on</span>
+            <h3 className="text-2xl sm:text-4xl font-black italic uppercase tracking-tighter mb-2 sm:mb-4 text-primary">Multiple <br/>Branches</h3>
+            <p className="text-on-surface-variant text-sm sm:text-lg leading-relaxed font-body hidden sm:block">Seamlessly move between our Town, Nallur, and Kondavil locations with a single membership tag.</p>
           </div>
-          <span className="material-symbols-outlined text-primary text-5xl sm:text-7xl mb-4 sm:mb-8">location_on</span>
-          <h3 className="text-2xl sm:text-4xl font-black italic uppercase tracking-tighter mb-2 sm:mb-4 text-primary">Multiple <br/>Branches</h3>
-          <p className="text-on-surface-variant text-sm sm:text-lg leading-relaxed font-body hidden sm:block">Seamlessly move between our Town, Nallur, and Kondavil locations with a single membership tag.</p>
         </div>
 
         <div className="lg:col-span-2 bg-surface-container rounded-2xl overflow-hidden relative group h-[300px] sm:h-[400px] lg:h-[550px] border border-outline-variant/10">
           <img
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-50"
-            src="/images/feature-2.jpg"
+            src="/images/feature-community.png"
             alt="Athlete training"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>

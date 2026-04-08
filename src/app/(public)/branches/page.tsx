@@ -31,19 +31,20 @@ export default function BranchesPage() {
     <div className="pt-20">
       <BranchHero />
 
-      <section id="branches-list" className="no-border-section max-w-7xl mx-auto py-12 sm:py-20 lg:py-32 px-4 sm:px-6">
+      <section id="branches-list" className="no-border-section max-w-7xl mx-auto pt-4 pb-12 sm:py-20 lg:py-32 px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-16">
           {BRANCHES.map((branch) => {
             const isOpen = getOpenStatus(branch.hours);
             return (
               <Link key={branch.slug} href={`/branches/${branch.slug}`} className="group block h-full">
-                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-8 grayscale group-hover:grayscale-0 transition-all duration-700 border border-outline-variant/10 shadow-2xl group-hover:border-primary/50 group-hover:shadow-primary/10">
+                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-8 border border-outline-variant/10 shadow-2xl group-hover:border-primary/50 group-hover:shadow-primary/10 transition-all duration-700">
                   <img
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                     src={branch.image}
                     alt={branch.name}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-opacity"></div>
+                  {/* Removed gradient overlay to show exact image */}
+
                   
                   {/* Tactical Badges */}
                   <div className="absolute top-4 left-4 flex flex-col gap-2">

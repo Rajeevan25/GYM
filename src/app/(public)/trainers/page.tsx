@@ -98,7 +98,7 @@ export default function TrainersPage() {
             >
               {/* Image Container */}
               <div className="w-full md:w-[45%] h-72 md:h-auto relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-background/80 to-transparent z-10 hidden md:block" />
+                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r to-transparent z-10 hidden md:block" />
                 <img
                   src={trainer.image}
                   alt={trainer.name}

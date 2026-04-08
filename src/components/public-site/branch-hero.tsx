@@ -44,11 +44,11 @@ function ImageHexagon({ src, delay }: ImageHexagonProps) {
 
 export function BranchHero() {
   return (
-    <section className="relative min-h-[80vh] lg:min-h-screen flex items-center overflow-hidden py-20 lg:py-0">
+    <section className="relative min-h-fit lg:min-h-screen flex items-center overflow-hidden py-4 lg:py-0">
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Side Content */}
-        <div className="order-2 lg:order-1">
+        <div className="lg:order-1">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full mb-8">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
             <span className="text-primary text-[10px] font-black tracking-widest uppercase">Global Hubs</span>
@@ -79,29 +79,31 @@ export function BranchHero() {
           </div>
         </div>
 
-        {/* Right Side - Hexagon Honeycomb Cluster */}
-        <div className="order-1 lg:order-2 flex justify-center lg:justify-end items-center py-12 lg:py-0">
+        {/* Right Side - Hexagon Honeycomb Cluster (Desktop Only) */}
+        <div className="hidden lg:flex order-2 justify-end items-center py-12 lg:py-0">
           <div className="relative grid grid-cols-2 sm:grid-cols-3 gap-4 -space-y-12 sm:-space-x-8 lg:-space-x-12 sm:items-center">
             {/* Row 1 */}
             <div className="flex flex-col gap-4 translate-y-8 sm:translate-y-12">
-              <ImageHexagon src="/images/branch-jaffna.jpg" delay="0s" />
+              <ImageHexagon src="/images/branch-jaffna-new.png" delay="0s" />
               <StatHexagon label="Machines" value="50+" delay="1.5s" />
             </div>
             
             {/* Row 2 - Center Column */}
             <div className="flex flex-col gap-4">
               <StatHexagon label="Access" value="24/7" delay="0.5s" />
-              <ImageHexagon src="/images/branch-nallur.jpg" delay="2.5s" />
+              <ImageHexagon src="/images/branch-nallur-new.png" delay="2.5s" />
               <StatHexagon label="Sauna" value="YES" delay="1s" />
             </div>
 
             {/* Row 3 */}
             <div className="flex flex-col gap-4 translate-y-8 sm:translate-y-12">
-              <ImageHexagon src="/images/branch-kondavil.jpg" delay="0.8s" />
+              <ImageHexagon src="/images/branch-kondavil-new.png" delay="0.8s" />
               <StatHexagon label="Elite Coaches" value="12+" delay="2s" />
             </div>
+
           </div>
         </div>
+
       </div>
     </section>
   );

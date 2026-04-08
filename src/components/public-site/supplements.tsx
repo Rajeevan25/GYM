@@ -5,7 +5,7 @@ export function PublicSupplements() {
     <section className="no-border-section max-w-7xl mx-auto py-16 sm:py-24 lg:py-32 px-4 sm:px-6">
       <div className="bg-surface-container rounded-[24px] sm:rounded-[40px] p-6 sm:p-12 lg:p-24 relative overflow-hidden group">
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 sm:gap-20">
-          <div className="max-w-2xl w-full">
+          <div className="lg:flex-[1.1] w-full">
             <h2 className="text-4xl sm:text-6xl lg:text-8xl font-black italic uppercase tracking-tighter mb-6 sm:mb-8 leading-[0.9]">Fuel <br/><span className="text-primary italic">The Grind</span></h2>
             <p className="text-on-surface-variant text-base sm:text-xl mb-8 sm:mb-12 leading-relaxed max-w-xl">
               Premium supplements, protein isolates, and performance gear curated by our head coaches.
@@ -38,14 +38,15 @@ export function PublicSupplements() {
             </Link>
           </div>
 
-          <div className="w-full lg:flex-1 relative max-w-sm lg:max-w-[450px] mx-auto">
+          <div className="w-full lg:flex-[0.9] relative lg:max-w-[750px] mx-auto group-hover:scale-105 transition-transform duration-700">
             <img
-              className="w-full h-auto drop-shadow-[0_50px_100px_rgba(0,0,0,0.8)] motion-safe:hover:scale-105 transition-transform duration-500"
+              className="w-full h-auto drop-shadow-[0_50px_100px_rgba(0,0,0,0.8)] animate-float"
               src="/images/shop/shop-bundle-full.png"
               alt="Premium Kinetic Supplements"
             />
-            {/* Abstract Glow */}
-            <div className="absolute -right-20 -bottom-20 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none group-hover:bg-primary/15 transition-colors"></div>
+            {/* Abstract Glow - Expanded to fill space */}
+            <div className="absolute -right-20 -bottom-20 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none group-hover:bg-primary/20 transition-all duration-700"></div>
+            <div className="absolute -left-20 -top-20 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none group-hover:bg-primary/10 transition-all duration-700"></div>
           </div>
         </div>
       </div>
