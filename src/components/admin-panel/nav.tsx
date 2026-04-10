@@ -141,7 +141,7 @@ export function AdminNav() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[100] bg-surface-container-low/98 backdrop-blur-2xl lg:hidden flex flex-col p-6 sm:p-10"
+            className="fixed inset-0 h-[100dvh] z-[100] bg-surface-container-low/98 backdrop-blur-2xl lg:hidden flex flex-col p-6 sm:p-10"
           >
             <div className="flex justify-between items-center mb-10">
               <div>

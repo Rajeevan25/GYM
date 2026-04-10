@@ -51,7 +51,7 @@ export function PublicHeader() {
           <div className="flex-1">
             <Link href="/" className="text-3xl font-black italic text-primary tracking-tighter uppercase font-headline inline-block">
               <span className="hidden sm:inline">JK GYM</span>
-              <span className="sm:hidden">NFG</span>
+              <span className="sm:hidden">JK</span>
             </Link>
           </div>
           
@@ -119,12 +119,12 @@ export function PublicHeader() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[100] bg-surface/95 backdrop-blur-2xl lg:hidden flex flex-col p-10 overflow-y-auto"
+            className="fixed inset-0 z-[100] bg-surface/95 backdrop-blur-2xl lg:hidden flex flex-col p-8 overflow-y-auto"
           >
-            <div className="flex justify-between items-center mb-16">
+            <div className="flex justify-between items-center mb-10">
               <Link href="/" onClick={() => setIsMenuOpen(false)} className="text-3xl font-black italic text-primary tracking-tighter uppercase font-headline">
                 <span className="hidden sm:inline">JK GYM</span>
-                <span className="sm:hidden">NFG</span>
+                <span className="sm:hidden">JK</span>
               </Link>
               <div className="flex items-center gap-4">
                 {/* Cart Link (Mobile) */}
@@ -149,7 +149,7 @@ export function PublicHeader() {
               </div>
             </div>
 
-            <nav className="flex flex-col gap-10">
+            <nav className="flex flex-col gap-6">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.title}
@@ -160,7 +160,7 @@ export function PublicHeader() {
                   <Link 
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`text-5xl font-black italic tracking-tighter uppercase font-headline transition-all duration-300 hover:translate-x-3 inline-block ${
+                    className={`text-2xl font-black italic tracking-tighter uppercase font-headline transition-all duration-300 hover:translate-x-3 inline-block ${
                       pathname === link.href ? "text-primary" : "text-foreground hover:text-primary"
                     }`}
                   >
@@ -173,12 +173,12 @@ export function PublicHeader() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + navLinks.length * 0.1 }}
-                className="mt-12 pt-12 border-t border-white/10 flex flex-col gap-8"
+                className="mt-8 pt-8 border-t border-white/10 flex flex-col gap-6"
               >
                 <Link 
                   href="/login"
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center gap-4 text-2xl font-bold uppercase tracking-tighter font-headline text-on-surface-variant hover:text-primary"
+                  className="flex items-center gap-4 text-xl font-bold uppercase tracking-tighter font-headline text-on-surface-variant hover:text-primary"
                 >
                   <span className="material-symbols-outlined text-3xl">login</span>
                   Member Login
@@ -187,7 +187,7 @@ export function PublicHeader() {
                 <Link 
                   href="/register"
                   onClick={() => setIsMenuOpen(false)}
-                  className="kinetic-gradient text-white w-full py-6 rounded-2xl font-black tracking-tighter uppercase text-center text-2xl active:scale-[0.98] transition-all"
+                  className="kinetic-gradient text-white w-full py-4 rounded-xl font-black tracking-tighter uppercase text-center text-xl active:scale-[0.98] transition-all"
                 >
                   JOIN NOW
                 </Link>

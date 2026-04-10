@@ -41,7 +41,7 @@ export function AdminHeader() {
     .toUpperCase();
 
   return (
-    <header className="fixed top-0 right-0 left-0 lg:left-72 h-20 bg-background/80 backdrop-blur-md border-b border-white/5 z-30 px-6 sm:px-12 flex items-center justify-between">
+    <header className="fixed top-0 right-0 left-0 lg:left-72 h-20 bg-background/80 backdrop-blur-md border-b border-white/5 z-30 px-4 sm:px-12 flex items-center justify-between">
       {/* Mobile Menu Toggle & Logo */}
       <div className="flex items-center gap-4 lg:hidden">
         <button 
@@ -54,7 +54,7 @@ export function AdminHeader() {
       </div>
 
       {/* Search Bar */}
-      <div className="flex-1 max-w-xl lg:ml-0 ml-4">
+      <div className="flex-1 max-w-xl lg:ml-0 ml-2 sm:ml-4">
         <div className="relative group">
           <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">
             search
@@ -64,7 +64,7 @@ export function AdminHeader() {
             placeholder="Search metadata, sessions, or assets..."
             className="w-full bg-surface-container-high/50 border border-white/5 rounded-2xl py-3 pl-12 pr-4 text-sm font-medium focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-on-surface-variant/30 group-hover:bg-surface-container-high"
           />
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-1 items-center opacity-30 group-focus-within:opacity-0 transition-opacity">
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden md:flex gap-1 items-center opacity-30 group-focus-within:opacity-0 transition-opacity">
             <kbd className="bg-surface-container rounded px-1.5 py-0.5 text-[10px] font-black tracking-widest uppercase">Ctrl</kbd>
             <kbd className="bg-surface-container rounded px-1.5 py-0.5 text-[10px] font-black tracking-widest uppercase">K</kbd>
           </div>

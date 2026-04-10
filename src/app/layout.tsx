@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/context/cart-context";
 import { Toaster } from "sonner";
+import "material-symbols/outlined.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,12 +29,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} dark`}>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        />
-      </head>
       <body className="antialiased font-body bg-background text-foreground selection:bg-primary selection:text-primary-foreground min-h-screen">
         <CartProvider>
           <Toaster 

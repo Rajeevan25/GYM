@@ -12,7 +12,7 @@ export default function AdminLayout({
       <AdminNav />
       <div className="flex-1 flex flex-col min-h-screen">
         <AdminHeader />
-        <main className="flex-1 lg:ml-72 pt-32 sm:pt-36 lg:pt-32 px-4 sm:px-6 lg:px-12 pb-12 overflow-x-hidden h-screen overflow-y-auto custom-scrollbar">
+        <main className="flex-1 lg:ml-72 pt-24 sm:pt-36 lg:pt-32 px-4 sm:px-6 lg:px-12 pb-12 overflow-x-hidden min-h-screen custom-scrollbar">
           <PageTransition>
             {children}
           </PageTransition>
