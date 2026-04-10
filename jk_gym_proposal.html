@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JK GYM Hosting Proposal - Jaffna</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8eff71;
+            --bg: #0a0a0a;
+            --surface: #1a1a1a;
+            --text: #ffffff;
+            --text-muted: #a0a0a0;
+            --border: #333333;
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .container {
+                box-shadow: none !important;
+                border: none !important;
+            }
+            .card {
+                break-inside: avoid;
+                border: 1px solid #ddd !important;
+            }
+            .accent-bar {
+                background: black !important;
+            }
+            .btn { display: none !important; }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 60px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
+
+        header {
+            margin-bottom: 60px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 30px;
+        }
+
+        .brand {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .subheadline {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            color: var(--primary);
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card {
+            background: #111;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .option-name {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .price-tag {
+            background: var(--primary);
+            color: black;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th {
+            text-align: left;
+            color: var(--text-muted);
+            font-size: 12px;
+            text-transform: uppercase;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+
+        .feature-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .recommendation {
+            background: rgba(142, 255, 113, 0.1);
+            border: 1px dashed var(--primary);
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 50px;
+        }
+
+        .recommendation h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .btn-print {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(142, 255, 113, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .btn-print:hover {
+            transform: scale(1.05);
+        }
+
+        .recommended-card {
+            background: rgba(142, 255, 113, 0.06);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 40px rgba(142, 255, 113, 0.12);
+            position: relative;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -14px;
+            left: 30px;
+            background: var(--primary);
+            color: black;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 16px;
+            border-radius: 20px;
+        }
+
+        .free-callout {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(142, 255, 113, 0.15);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .free-callout span {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="brand">JK GYM | Kinetic Performance</div>
+            <h1>Hosting Infrastructure Proposal</h1>
+            <p class="subheadline">Engineered for the Jaffna Branch Ecosystem</p>
+        </header>
+
+        <section>
+            <p>This proposal outlines the top-tier cloud infrastructure for the JK GYM management platform. All options are optimized for <strong>Singapore Data Centers</strong> to provide sub-100ms latency for users in Northern Sri Lanka.</p>
+        </section>
+
+        <h2>01. The "Elite" Standard</h2>
+        <div class="card recommended-card">
+            <div class="recommended-badge">Client Recommended</div>
+            <div class="card-header">
+                <div>
+                    <div class="option-name">Vercel + Supabase</div>
+                    <div class="subheadline">Best for Next.js performance and features</div>
+                </div>
+                <div class="price-tag">Best Value</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Monthly (USD)</th>
+                        <th>Monthly (LKR)</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Starter</strong></td>
+                        <td>$0 (Free)</td>
+                        <td>Rs 0</td>
+                        <td>Launch & 50+ Users</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Growth</strong></td>
+                        <td>$45</td>
+                        <td>Rs 13,500</td>
+                        <td>High Traffic Scale</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="feature-list">
+                <li>Instant global edge delivery (No lag in Jaffna)</li>
+                <li>Built-in user authentication and secure databases</li>
+                <li>Automated daily backups and SSL security</li>
+            </ul>
+            <div class="free-callout"><span>✦</span> Starts at Rs 0 — Launch today with zero upfront cost</div>
+        </div>
+
+        <h2>02. The "Unified" Choice</h2>
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="option-name">Railway All-In-One</div>
+                    <div class="subheadline">Simplified single-dashboard management</div>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Monthly (USD)</th>
+                        <th>Monthly (LKR)</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hobby</strong></td>
+                        <td>$5</td>
+                        <td>Rs 1,500</td>
+                        <td>Small Branch Ops</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pro</strong></td>
+                        <td>$20+</td>
+                        <td>Rs 6,000+</td>
+                        <td>Predictable Scale</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="feature-list">
+                <li>Unified billing for UI, Backend, and Database</li>
+                <li>Zero-configuration deployment pipeline</li>
+                <li>High-performance North-Singapore nodes</li>
+            </ul>
+        </div>
+
+        <h2>03. The "Professional" Choice</h2>
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="option-name">DigitalOcean Managed</div>
+                    <div class="subheadline">For established corporate security</div>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Monthly (USD)</th>
+                        <th>Monthly (LKR)</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Standard</strong></td>
+                        <td>$20</td>
+                        <td>Rs 6,000</td>
+                        <td>Production Stability</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elite</strong></td>
+                        <td>$40+</td>
+                        <td>Rs 12,000+</td>
+                        <td>Enterprise Security</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="feature-list">
+                <li>Fixed, predictable monthly billing</li>
+                <li>Managed dedicated PostgreSQL databases</li>
+                <li>High availability with 99.9% uptime SLA</li>
+            </ul>
+        </div>
+
+        <div class="recommendation">
+            <h3>Powered by Kinetic Architecture</h3>
+            <p>The "Elite Standard" utilizes a 100% Modern Tech Stack designed for speed, security, and scalability:</p>
+            <table style="margin-top: 15px;">
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>Role</th>
+                        <th>Benefit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Next.js 16</strong></td>
+                        <td>Application Framework</td>
+                        <td>Ultrafast page loads & SEO</td>
+                    </tr>
+                    <tr>
+                        <td><strong>React 19</strong></td>
+                        <td>UI Library</td>
+                        <td>Smooth, interactive user experience</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tailwind CSS 4</strong></td>
+                        <td>Styling Engine</td>
+                        <td>Modern, responsive high-end design</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Supabase (Postgres)</strong></td>
+                        <td>Database & Auth</td>
+                        <td>Bank-grade data security & speed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vercel Edge</strong></td>
+                        <td>Cloud Infrastructure</td>
+                        <td>Zero-latency delivery in Jaffna</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Framer Motion</strong></td>
+                        <td>Animations</td>
+                        <td>Fluid, premium app-like feel</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="recommendation" style="background: rgba(255, 255, 255, 0.05); border-color: var(--border);">
+            <h3>Recommendation</h3>
+            <p><strong>Start with the Vercel + Supabase Starter tier.</strong> It allows for a $0/month deployment to test local network speeds in Jaffna while providing the world's most modern developer ecosystem.</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 JK GYM | Kinetic Performance Infrastructure</p>
+            <p>Proposal generated for client review.</p>
+        </footer>
+    </div>
+
+    <a href="#" class="btn-print" onclick="window.print(); return false;">Save as PDF</a>
+
+</body>
+</html>

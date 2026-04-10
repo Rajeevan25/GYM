@@ -2,7 +2,7 @@
 
 
 @theme {
-  --color-primary: #8eff71;
+  --color-primary: #ff7171;
   --color-secondary: #669dff;
   --color-surface-container: #222930;
   --color-surface-container-low: #1a2026;
@@ -28,8 +28,8 @@
   --card-foreground: 210 20% 98%;
   --popover: 210 17% 16%;
   --popover-foreground: 210 20% 98%;
-  --primary: 102 100% 72%; /* #8eff71 */
-  --primary-foreground: 102 100% 12%; 
+  --primary: 0 100% 72%; /* #ff7171 */
+  --primary-foreground: 0 100% 12%; 
   --secondary: 218 100% 70%; /* #669dff */
   --secondary-foreground: 218 100% 10%;
   --muted: 210 16% 20%;
@@ -40,7 +40,7 @@
   --destructive-foreground: 0 0% 98%;
   --border: 210 16% 35%;
   --input: 210 16% 35%;
-  --ring: 102 100% 72%;
+  --ring: 0 100% 72%;
   
   /* Custom Kinetic tokens */
   --surface-container: 210 16% 16%; /* #222930 */
@@ -75,7 +75,7 @@
   }
   
   .kinetic-gradient {
-    background: linear-gradient(135deg, #052e16 0%, #064e3b 100%);
+    background: linear-gradient(135deg, #2e0505 0%, #4e0606 100%);
   }
 
   .no-border-section {

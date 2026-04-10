@@ -1,22 +1,42 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { getCurrentUser } from "@/lib/auth";
+import { getCurrentUser, logout } from "@/lib/auth";
 import { BRANCHES } from "@/lib/data";
 
 export function AdminNav() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeBranch, setActiveBranch] = useState("all");
+  
+  useEffect(() => {
+    const handleToggle = () => setIsMenuOpen(state => !state);
+    const handleOpen = () => setIsMenuOpen(true);
+    
+    window.addEventListener('toggle-admin-sidebar', handleToggle);
+    window.addEventListener('open-admin-sidebar', handleOpen);
+    
+    return () => {
+      window.removeEventListener('toggle-admin-sidebar', handleToggle);
+      window.removeEventListener('open-admin-sidebar', handleOpen);
+    };
+  }, []);
   
   const user = getCurrentUser();
   const isSuperAdmin = user.role === 'SUPER_ADMIN';
   const isBranchAdmin = user.role === 'BRANCH_ADMIN';
 
+  const handleLogout = () => {
+    logout();
+    router.push("/");
+  };
+
   const navItems = [
+// ... (rest of navItems)
     { name: "Overview", href: "/admin", icon: "dashboard" },
     { name: "Members", href: "/admin/members", icon: "group" },
     { name: "Payments", href: "/admin/payments", icon: "payments" },
@@ -102,23 +122,16 @@ export function AdminNav() {
         </nav>
 
         <div className="px-8 mt-auto pt-8 border-t border-white/5">
-           <button className="flex items-center gap-4 text-on-surface-variant hover:text-destructive transition-colors text-xs font-black uppercase tracking-widest">
+           <button 
+             onClick={handleLogout}
+             className="flex items-center gap-4 text-on-surface-variant hover:text-destructive transition-colors text-xs font-black uppercase tracking-widest"
+           >
               <span className="material-symbols-outlined">logout</span>
               Terminate Session
            </button>
         </div>
       </aside>
 
-      {/* Mobile AppBar */}
-      <header className="lg:hidden fixed top-0 w-full glass h-16 sm:h-20 items-center px-4 sm:px-6 flex justify-between z-50">
-         <div className="text-xl sm:text-2xl font-black italic text-primary font-headline tracking-tighter uppercase">APEX FORGE</div>
-         <button
-           className="p-2 text-primary active:scale-90 transition-transform"
-           onClick={() => setIsMenuOpen(true)}
-         >
-            <span className="material-symbols-outlined text-3xl">menu</span>
-         </button>
-      </header>
 
       {/* Mobile Drawer */}
       <AnimatePresence>
@@ -204,7 +217,10 @@ export function AdminNav() {
             </nav>
 
             <div className="mt-auto pt-6 border-t border-white/5">
-               <button className="flex items-center gap-4 text-on-surface-variant hover:text-destructive transition-colors text-xs font-black uppercase tracking-widest">
+               <button 
+                 onClick={handleLogout}
+                 className="flex items-center gap-4 text-on-surface-variant hover:text-destructive transition-colors text-xs font-black uppercase tracking-widest"
+               >
                   <span className="material-symbols-outlined">logout</span>
                   Terminate Session
                </button>

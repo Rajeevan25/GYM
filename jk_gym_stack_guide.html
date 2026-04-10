@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JK GYM – Vercel + Supabase Stack Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8eff71;
+            --bg: #0a0a0a;
+            --surface: #1a1a1a;
+            --text: #ffffff;
+            --text-muted: #a0a0a0;
+            --border: #2a2a2a;
+        }
+
+        @media print {
+            body { background: #fff !important; color: #000 !important; padding: 0 !important; }
+            .container { box-shadow: none !important; border: none !important; background: #fff !important; color: #000 !important; }
+            .card { border: 1px solid #ddd !important; background: #f9f9f9 !important; break-inside: avoid; }
+            .card-title { color: #000 !important; }
+            h2 { color: #1a6e00 !important; }
+            .tag { background: #1a6e00 !important; color: #fff !important; }
+            .flow-box { background: #f0f0f0 !important; border-color: #1a6e00 !important; color: #000 !important; }
+            .flow-arrow { color: #1a6e00 !important; }
+            .highlight-row td { background: rgba(26,110,0,0.08) !important; }
+            .free-badge { background: #1a6e00 !important; color: #fff !important; }
+            .btn-print { display: none !important; }
+            .note-box { background: #f0f0f0 !important; border-color: #1a6e00 !important; color: #000 !important; }
+            table th { color: #555 !important; }
+            .check { color: #1a6e00 !important; }
+            footer { color: #555 !important; }
+            .brand, .subheadline { color: #555 !important; }
+            header { border-bottom-color: #1a6e00 !important; }
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 60px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
+
+        header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 30px;
+        }
+
+        .brand {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        .subheadline {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            color: var(--primary);
+            margin: 45px 0 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 .num {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .card {
+            background: #111;
+            padding: 28px 30px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Architecture Flow */
+        .flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin: 25px 0;
+        }
+
+        .flow-box {
+            width: 100%;
+            background: #111;
+            border: 1px solid var(--primary);
+            border-radius: 12px;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .flow-box-left { font-weight: 700; font-size: 15px; }
+        .flow-box-right { color: var(--text-muted); font-size: 13px; text-align: right; }
+
+        .flow-arrow {
+            font-size: 22px;
+            color: var(--primary);
+            margin: 6px 0;
+        }
+
+        .flow-sub {
+            width: 92%;
+            background: #0e0e0e;
+            border: 1px dashed var(--border);
+            border-radius: 10px;
+            padding: 14px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 4px 0;
+        }
+
+        .flow-sub-left { font-size: 13px; color: var(--text-muted); }
+        .flow-sub-right { font-size: 12px; color: var(--primary); font-family: monospace; }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        th {
+            text-align: left;
+            color: var(--text-muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 13px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            vertical-align: top;
+        }
+
+        .check { color: var(--primary); font-size: 16px; }
+
+        .highlight-row td { background: rgba(142, 255, 113, 0.04); }
+
+        /* Tag */
+        .tag {
+            display: inline-block;
+            background: var(--primary);
+            color: black;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Free badge */
+        .free-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(142, 255, 113, 0.12);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* Note box */
+        .note-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px dashed var(--border);
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin-top: 40px;
+        }
+
+        .note-box h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .note-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .note-box ul li {
+            position: relative;
+            padding-left: 22px;
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .note-box ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .verdict {
+            background: rgba(142, 255, 113, 0.08);
+            border: 2px solid var(--primary);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .verdict h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .verdict p {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            padding-top: 30px;
+        }
+
+        .btn-print {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: black;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 10px 30px rgba(142, 255, 113, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .btn-print:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="brand">JK GYM | Kinetic Performance</div>
+        <h1>Vercel + Supabase<br>No Backend Needed</h1>
+        <p class="subheadline">A complete guide to how the JK GYM platform runs on two services — no separate server required.</p>
+    </header>
+
+    <!-- Section 1: The Answer -->
+    <h2><span class="num">01 —</span> The Short Answer</h2>
+    <div class="card">
+        <div class="card-title">Yes. Vercel + Supabase is fully complete.</div>
+        <p>
+            Next.js (running on Vercel) includes built-in server-side logic. Supabase handles the database, authentication, file storage, and security rules.
+            Together, they replace everything a traditional backend server would do — at a fraction of the cost.
+        </p>
+        <br>
+        <div class="free-badge">✦ &nbsp;Starts at Rs 0 — Zero upfront cost to launch</div>
+    </div>
+
+    <!-- Section 2: Architecture -->
+    <h2><span class="num">02 —</span> How the Stack Works</h2>
+
+    <div class="flow">
+        <div class="flow-box">
+            <div class="flow-box-left">Member / Admin Browser</div>
+            <div class="flow-box-right">Opens the JK GYM app</div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-box">
+            <div class="flow-box-left">Next.js on Vercel &nbsp;<span class="tag">Your Frontend + Backend</span></div>
+            <div class="flow-box-right">Singapore Edge Server</div>
+        </div>
+
+        <div class="flow-sub">
+            <div class="flow-sub-left">UI Pages — What members see (React components, animations)</div>
+            <div class="flow-sub-right">/app/page.tsx</div>
+        </div>
+        <div class="flow-sub">
+            <div class="flow-sub-left">API Routes — Business logic (register member, process payment)</div>
+            <div class="flow-sub-right">/app/api/*/route.ts</div>
+        </div>
+        <div class="flow-sub">
+            <div class="flow-sub-left">Server Actions — Direct secure database calls from server</div>
+            <div class="flow-sub-right">use server</div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-box">
+            <div class="flow-box-left">Supabase &nbsp;<span class="tag">Your Database + Auth</span></div>
+            <div class="flow-box-right">Singapore Data Center</div>
+        </div>
+
+        <div class="flow-sub">
+            <div class="flow-sub-left">PostgreSQL Database — Members, payments, schedules</div>
+            <div class="flow-sub-right">Tables / SQL</div>
+        </div>
+        <div class="flow-sub">
+            <div class="flow-sub-left">Auth — Member login, admin login, session tokens</div>
+            <div class="flow-sub-right">supabase.auth</div>
+        </div>
+        <div class="flow-sub">
+            <div class="flow-sub-left">Storage — Profile photos, membership documents</div>
+            <div class="flow-sub-right">supabase.storage</div>
+        </div>
+        <div class="flow-sub">
+            <div class="flow-sub-left">Row Level Security — Only you can see your data</div>
+            <div class="flow-sub-right">RLS Policies</div>
+        </div>
+    </div>
+
+    <!-- Section 3: What Supabase Replaces -->
+    <h2><span class="num">03 —</span> What Supabase Replaces</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Traditional Backend Need</th>
+                <th>Supabase Handles It</th>
+                <th>Extra Cost?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="highlight-row">
+                <td>User login &amp; registration system</td>
+                <td>Built-in Auth (email, Google, phone OTP)</td>
+                <td><span class="check">✓</span> Free</td>
+            </tr>
+            <tr>
+                <td>Member data storage (profiles, plans)</td>
+                <td>PostgreSQL Database</td>
+                <td><span class="check">✓</span> Free up to 500MB</td>
+            </tr>
+            <tr class="highlight-row">
+                <td>File uploads (photos, documents)</td>
+                <td>Supabase Storage</td>
+                <td><span class="check">✓</span> Free up to 1GB</td>
+            </tr>
+            <tr>
+                <td>Data access rules (who sees what)</td>
+                <td>Row Level Security (RLS)</td>
+                <td><span class="check">✓</span> Built-in</td>
+            </tr>
+            <tr class="highlight-row">
+                <td>Live attendance / real-time updates</td>
+                <td>Supabase Realtime</td>
+                <td><span class="check">✓</span> Built-in</td>
+            </tr>
+            <tr>
+                <td>Database backups</td>
+                <td>Daily automated backups</td>
+                <td><span class="check">✓</span> Built-in</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Section 4: JK Gym Features -->
+    <h2><span class="num">04 —</span> JK Gym — Feature Mapping</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Gym Feature</th>
+                <th>Built With</th>
+                <th>Where It Lives</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Member registration &amp; login</strong></td>
+                <td>Supabase Auth</td>
+                <td>Supabase</td>
+            </tr>
+            <tr class="highlight-row">
+                <td><strong>Member profiles &amp; plans</strong></td>
+                <td>PostgreSQL tables + Next.js pages</td>
+                <td>Supabase + Vercel</td>
+            </tr>
+            <tr>
+                <td><strong>Attendance tracking</strong></td>
+                <td>DB records + Supabase Realtime</td>
+                <td>Supabase</td>
+            </tr>
+            <tr class="highlight-row">
+                <td><strong>Payment records</strong></td>
+                <td>PostgreSQL + API Route</td>
+                <td>Supabase + Vercel</td>
+            </tr>
+            <tr>
+                <td><strong>Class schedules</strong></td>
+                <td>DB table + Next.js page</td>
+                <td>Supabase + Vercel</td>
+            </tr>
+            <tr class="highlight-row">
+                <td><strong>Admin dashboard</strong></td>
+                <td>Next.js Server Actions</td>
+                <td>Vercel</td>
+            </tr>
+            <tr>
+                <td><strong>Profile photo upload</strong></td>
+                <td>Supabase Storage</td>
+                <td>Supabase</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Section 5: Pricing -->
+    <h2><span class="num">05 —</span> Pricing Breakdown</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Service</th>
+                <th>Free Tier Limit</th>
+                <th>Paid (if needed)</th>
+                <th>Monthly (LKR)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Vercel</strong></td>
+                <td>Unlimited deploys, 100GB bandwidth</td>
+                <td>$20/month (Pro)</td>
+                <td>Rs 0 → Rs 6,000</td>
+            </tr>
+            <tr class="highlight-row">
+                <td><strong>Supabase</strong></td>
+                <td>500MB DB, 1GB storage, 50MB file uploads</td>
+                <td>$25/month (Pro)</td>
+                <td>Rs 0 → Rs 7,500</td>
+            </tr>
+            <tr>
+                <td><strong>Custom Domain</strong> (optional)</td>
+                <td>—</td>
+                <td>~$12/year (.com)</td>
+                <td>Rs 300/month</td>
+            </tr>
+            <tr class="highlight-row">
+                <td colspan="3"><strong>Total to Launch</strong></td>
+                <td><strong style="color: var(--primary);">Rs 0/month</strong></td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Total at Scale (200+ members)</strong></td>
+                <td><strong>Rs 13,500/month</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- When would you need a backend -->
+    <div class="note-box">
+        <h3>When would you need a separate backend?</h3>
+        <ul>
+            <li>500+ concurrent members doing heavy operations simultaneously</li>
+            <li>Hardware integrations (biometric fingerprint scanner, turnstile gates)</li>
+            <li>Complex bulk SMS / WhatsApp automation at large scale</li>
+            <li>Enterprise compliance requirements (rare for a local gym)</li>
+        </ul>
+        <br>
+        <p style="color: var(--text-muted); font-size: 14px;">
+            For JK GYM Jaffna at current and projected scale — <strong style="color: white;">none of these apply.</strong>
+            Vercel + Supabase handles everything.
+        </p>
+    </div>
+
+    <!-- Verdict -->
+    <div class="verdict">
+        <h3>Final Verdict</h3>
+        <p>
+            Vercel + Supabase is a <strong style="color: white;">complete, production-grade stack</strong> for JK GYM.
+            No separate backend server. No extra DevOps. No hidden complexity.
+            Launch at <strong style="color: var(--primary);">Rs 0</strong> and scale only when the gym grows.
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 JK GYM | Kinetic Performance Infrastructure</p>
+        <p style="margin-top:6px;">Prepared for client review — Jaffna Branch</p>
+    </footer>
+
+</div>
+
+<a href="#" class="btn-print" onclick="window.print(); return false;">Save as PDF</a>
+
+</body>
+</html>

@@ -50,7 +50,7 @@ export function PublicHeader() {
           {/* Left: Brand */}
           <div className="flex-1">
             <Link href="/" className="text-3xl font-black italic text-primary tracking-tighter uppercase font-headline inline-block">
-              <span className="hidden sm:inline">Northern Fitness GYM</span>
+              <span className="hidden sm:inline">JK GYM</span>
               <span className="sm:hidden">NFG</span>
             </Link>
           </div>
@@ -123,7 +123,7 @@ export function PublicHeader() {
           >
             <div className="flex justify-between items-center mb-16">
               <Link href="/" onClick={() => setIsMenuOpen(false)} className="text-3xl font-black italic text-primary tracking-tighter uppercase font-headline">
-                <span className="hidden sm:inline">Northern Fitness GYM</span>
+                <span className="hidden sm:inline">JK GYM</span>
                 <span className="sm:hidden">NFG</span>
               </Link>
               <div className="flex items-center gap-4">

@@ -124,7 +124,7 @@ export default function MemberShopPage() {
                <p className="text-on-surface-variant text-sm sm:text-base font-medium leading-relaxed font-body mb-6 sm:mb-8">
                   Architect your own recovery stack. Select 3 or more premium supplements and get an additional <span className="text-foreground font-black italic">15% Kinetic Credit</span>.
                </p>
-               <button className="bg-foreground text-background px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-[#064e3b] hover:text-white transition-all shadow-2xl active:scale-95">
+               <button className="bg-foreground text-background px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-[#4e0606] hover:text-white transition-all shadow-2xl active:scale-95">
                   Build Custom Protocol
                </button>
             </div>

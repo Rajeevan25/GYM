@@ -14,3 +14,8 @@ export function setCurrentUser(id: string) {
     currentUser = user;
   }
 }
+export function logout() {
+  // In a real app, this would clear cookies/tokens
+  // For this demo, we just reset to the default or null
+  currentUser = MOCK_USERS[2]; // Resetting to default trainer for the demo environment
+}

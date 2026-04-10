@@ -1,4 +1,5 @@
 import { TrainerNav } from "@/components/trainer-portal/nav";
+import { TrainerHeader } from "@/components/trainer-portal/header";
 import { PageTransition } from "@/components/shared/page-transition";
 
 export default function TrainerLayout({
@@ -9,18 +10,14 @@ export default function TrainerLayout({
   return (
     <div className="flex bg-background min-h-screen">
       <TrainerNav />
-      <main className="flex-1 lg:ml-72 p-4 sm:p-6 lg:p-12 pb-28 lg:pb-12 h-screen overflow-y-auto overflow-x-hidden custom-scrollbar">
-        {/* Mobile Top Header */}
-        <div className="lg:hidden flex justify-between items-center mb-10">
-          <div className="text-2xl font-black italic text-secondary font-headline tracking-tighter uppercase">TRAINER HUB</div>
-          <div className="w-10 h-10 rounded-full bg-surface-container-highest border border-secondary/20 flex items-center justify-center overflow-hidden">
-             <span className="material-symbols-outlined text-secondary">person</span>
-          </div>
-        </div>
-        <PageTransition>
-          {children}
-        </PageTransition>
-      </main>
+      <div className="flex-1 flex flex-col min-h-screen">
+        <TrainerHeader />
+        <main className="flex-1 lg:ml-72 pt-32 sm:pt-36 lg:pt-32 px-4 sm:px-6 lg:px-12 pb-28 lg:pb-12 h-screen overflow-y-auto overflow-x-hidden custom-scrollbar">
+          <PageTransition>
+            {children}
+          </PageTransition>
+        </main>
+      </div>
     </div>
   );
 }

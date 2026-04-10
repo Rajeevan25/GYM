@@ -46,7 +46,7 @@ export default function TimetablePage() {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,#064e3b15,transparent_70%)]"></div>
+         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,#4e060615,transparent_70%)]"></div>
          <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-8 animate-fade-in">
                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
@@ -137,8 +137,8 @@ export default function TimetablePage() {
               return (
                 <div 
                   key={i} 
-                  className={`group relative bg-surface-container rounded-[2rem] p-8 sm:p-10 border transition-all duration-500 hover:shadow-[0_20px_50px_rgba(142,255,113,0.1)] flex flex-col justify-between overflow-hidden ${
-                    live ? "border-primary shadow-[0_0_30px_rgba(142,255,113,0.15)] scale-[1.02]" : "border-outline-variant/10 hover:border-primary/50"
+                  className={`group relative bg-surface-container rounded-[2rem] p-8 sm:p-10 border transition-all duration-500 hover:shadow-[0_20px_50px_rgba(255,113,113,0.1)] flex flex-col justify-between overflow-hidden ${
+                    live ? "border-primary shadow-[0_0_30px_rgba(255,113,113,0.15)] scale-[1.02]" : "border-outline-variant/10 hover:border-primary/50"
                   }`}
                 >
                   {/* Background Accents */}

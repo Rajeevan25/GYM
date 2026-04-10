@@ -34,7 +34,7 @@ export default function PlansPage() {
                  <div key={i} className="grid grid-cols-4 gap-2 sm:gap-4 p-4 sm:p-6 bg-surface-container rounded-xl items-center border border-white/5">
                     <span className="col-span-1 text-[10px] sm:text-xs font-black uppercase tracking-widest text-on-surface-variant">{item.feature}</span>
                     <span className="text-center text-[10px] font-black uppercase text-foreground">{item.basic === true ? '✅' : item.basic === false ? '❌' : item.basic}</span>
-                    <span className="text-center text-[10px] font-black uppercase text-[#064e3b] font-bold italic tracking-tighter">{item.pro === true ? '✅' : item.pro === false ? '❌' : item.pro}</span>
+                    <span className="text-center text-[10px] font-black uppercase text-[#4e0606] font-bold italic tracking-tighter">{item.pro === true ? '✅' : item.pro === false ? '❌' : item.pro}</span>
                     <span className="text-center text-[10px] font-black uppercase text-primary font-bold italic tracking-tighter">{item.premium === true ? '✅' : item.premium === false ? '❌' : item.premium}</span>
                  </div>
                ))}
