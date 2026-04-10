@@ -89,9 +89,9 @@ export function AdminNav() {
         {/* Admin Info Card */}
         <div className="px-6 mb-10">
           <div className={`p-4 bg-surface-container-high rounded-2xl flex items-center gap-4 border ${isBranchAdmin ? 'border-primary/40' : 'border-white/5'}`}>
-             <div className={`w-10 h-10 rounded-lg ${isBranchAdmin ? 'bg-primary/20' : 'bg-primary/10'} flex items-center justify-center border border-primary/20`}>
-                <span className="material-symbols-outlined text-emerald-500">{isSuperAdmin ? 'shield_person' : 'badge'}</span>
-             </div>
+              <div className={`w-10 h-10 rounded-lg ${isBranchAdmin ? 'bg-primary/20' : 'bg-primary/10'} flex items-center justify-center border border-primary/20`}>
+                <span className="material-symbols-outlined text-red-500">{isSuperAdmin ? 'shield_person' : 'badge'}</span>
+              </div>
              <div>
                 <p className="text-xs font-black text-foreground uppercase tracking-widest">{user.name.split(' ')[0]}</p>
                 <p className="text-[9px] text-on-surface-variant font-black uppercase tracking-widest leading-none mt-1">
@@ -110,8 +110,8 @@ export function AdminNav() {
                 href={item.href}
                 className={`flex items-center gap-5 px-6 py-4 rounded-xl font-headline text-base font-bold transition-all ${
                   isActive
-                    ? "kinetic-gradient text-white italic shadow-lg shadow-emerald-900/20"
-                    : "text-on-surface-variant hover:text-emerald-400 hover:bg-surface-container-highest"
+                    ? "kinetic-gradient text-white italic shadow-lg shadow-red-900/40"
+                    : "text-on-surface-variant hover:text-red-400 hover:bg-surface-container-highest"
                 }`}
               >
                 <span className="material-symbols-outlined text-2xl">{item.icon}</span>
@@ -204,8 +204,8 @@ export function AdminNav() {
                       onClick={() => setIsMenuOpen(false)}
                       className={`flex items-center gap-5 px-6 py-4 rounded-xl font-headline text-base font-bold transition-all ${
                         isActive
-                          ? "kinetic-gradient text-white italic shadow-lg shadow-emerald-900/20"
-                          : "text-on-surface-variant hover:text-emerald-400 hover:bg-surface-container-highest"
+                          ? "kinetic-gradient text-white italic shadow-lg shadow-red-900/40"
+                          : "text-on-surface-variant hover:text-red-400 hover:bg-surface-container-highest"
                       }`}
                     >
                       <span className="material-symbols-outlined text-2xl">{item.icon}</span>

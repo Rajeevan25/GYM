@@ -27,7 +27,7 @@ export default function AdminMembersPage() {
                className="bg-surface-container-high border-none rounded-xl pl-12 pr-6 py-4 text-xs font-black uppercase tracking-widest focus:ring-primary/50 placeholder:text-on-surface-variant/30 w-full"
              />
           </div>
-          <button className="kinetic-gradient text-white px-6 sm:px-8 py-4 font-black rounded-xl hover:brightness-110 transition-all shadow-xl shadow-emerald-900/20 text-xs uppercase tracking-widest active:scale-95 duration-200">
+          <button className="kinetic-gradient text-white px-6 sm:px-8 py-4 font-black rounded-xl hover:brightness-110 transition-all shadow-xl shadow-red-900/40 text-xs uppercase tracking-widest active:scale-95 duration-200">
              Register New
           </button>
         </div>

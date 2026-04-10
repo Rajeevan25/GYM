@@ -35,7 +35,7 @@ export default function AdminSettingsPage() {
              Global <br/><span className="text-foreground tracking-normal">Architecture</span>
           </h1>
         </div>
-        <button className="kinetic-gradient text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-black text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-xl shadow-emerald-900/20 active:scale-95 duration-200 w-fit">
+        <button className="kinetic-gradient text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-black text-xs uppercase tracking-widest hover:brightness-110 transition-all shadow-xl shadow-red-900/40 active:scale-95 duration-200 w-fit">
            Deploy Global Update
         </button>
       </header>
@@ -45,7 +45,7 @@ export default function AdminSettingsPage() {
           <div key={i} className="bg-surface-container rounded-3xl p-6 sm:p-10 border border-outline-variant/10 shadow-2xl group hover:border-primary/20 transition-all">
              <div className="flex items-center gap-4 sm:gap-6 mb-6 sm:mb-10">
                 <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-surface-container-high flex items-center justify-center border border-white/5 transition-all group-hover:scale-110">
-                   <span className="material-symbols-outlined text-emerald-500 text-2xl sm:text-3xl">{section.icon}</span>
+                   <span className="material-symbols-outlined text-red-500 text-2xl sm:text-3xl">{section.icon}</span>
                 </div>
                 <div>
                    <h3 className="text-xl sm:text-2xl font-black italic uppercase tracking-tighter">{section.title}</h3>
@@ -57,7 +57,7 @@ export default function AdminSettingsPage() {
                 {section.options.map((option, idx) => (
                   <div key={idx} className="flex justify-between items-center bg-surface-container-low p-4 sm:p-6 rounded-2xl border border-white/5 group/opt hover:bg-surface-container-highest cursor-pointer">
                      <span className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant group-hover/opt:text-foreground transition-colors">{option}</span>
-                     <span className="material-symbols-outlined text-on-surface-variant/30 group-hover/opt:text-emerald-500 text-xl transition-colors">tune</span>
+                     <span className="material-symbols-outlined text-on-surface-variant/30 group-hover/opt:text-red-500 text-xl transition-colors">tune</span>
                   </div>
                 ))}
              </div>

@@ -137,8 +137,8 @@ export default function TimetablePage() {
               return (
                 <div 
                   key={i} 
-                  className={`group relative bg-surface-container rounded-[2rem] p-8 sm:p-10 border transition-all duration-500 hover:shadow-[0_20px_50px_rgba(255,113,113,0.1)] flex flex-col justify-between overflow-hidden ${
-                    live ? "border-primary shadow-[0_0_30px_rgba(255,113,113,0.15)] scale-[1.02]" : "border-outline-variant/10 hover:border-primary/50"
+                  className={`group relative bg-surface-container rounded-[2rem] p-8 sm:p-10 border transition-all duration-500 hover:shadow-[0_20px_50px_rgba(251,24,32,0.15)] flex flex-col justify-between overflow-hidden ${
+                    live ? "border-primary shadow-[0_0_30px_rgba(251,24,32,0.2)] scale-[1.02]" : "border-outline-variant/10 hover:border-primary/50"
                   }`}
                 >
                   {/* Background Accents */}
@@ -171,7 +171,7 @@ export default function TimetablePage() {
                               key={level} 
                               className={`w-3 h-1.5 rounded-full transition-all ${
                                 level <= item.intensity 
-                                ? (item.intensity >= 4 ? "bg-red-500" : "bg-primary") 
+                                ? "bg-primary" 
                                 : "bg-outline-variant/20"
                               }`}
                             ></div>
