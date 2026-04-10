@@ -45,28 +45,28 @@ export default function AdminPaymentsPage() {
 
       <div className="bg-surface-container rounded-3xl overflow-hidden border border-outline-variant/10 shadow-2xl">
          <div className="overflow-x-auto">
-            <table className="w-full text-left min-w-[560px]">
+            <table className="w-full text-left min-w-[800px]">
                <thead>
                   <tr className="bg-surface-container-low/50 text-on-surface-variant text-[10px] uppercase tracking-[0.3em] font-black border-b border-outline-variant/10">
-                     <th className="px-6 sm:px-10 py-4 sm:py-6">Ledger ID</th>
-                     <th className="px-6 sm:px-10 py-4 sm:py-6">Athlete</th>
-                     <th className="px-6 sm:px-10 py-4 sm:py-6">Amount (Rs.)</th>
-                     <th className="px-6 sm:px-10 py-4 sm:py-6 text-center">Status</th>
-                     <th className="px-6 sm:px-10 py-4 sm:py-6 text-right">Method</th>
+                     <th className="px-6 lg:px-10 py-4 sm:py-6">Ledger ID</th>
+                     <th className="px-6 lg:px-10 py-4 sm:py-6">Athlete</th>
+                     <th className="px-6 lg:px-10 py-4 sm:py-6">Amount (Rs.)</th>
+                     <th className="px-6 lg:px-10 py-4 sm:py-6 text-center">Status</th>
+                     <th className="px-6 lg:px-10 py-4 sm:py-6 text-right">Method</th>
                   </tr>
                </thead>
                <tbody className="divide-y divide-outline-variant/5">
                   {transactions.map((tx, i) => (
                     <tr key={i} className="hover:bg-primary/5 transition-colors cursor-pointer group">
-                       <td className="px-6 sm:px-10 py-5 sm:py-8">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8">
                           <p className="text-xs font-black uppercase tracking-widest mb-1">{tx.id}</p>
                           <p className="text-[10px] text-on-surface-variant font-black uppercase tracking-widest italic">{tx.date}</p>
                        </td>
-                       <td className="px-6 sm:px-10 py-5 sm:py-8">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8">
                           <p className="font-black italic tracking-tighter uppercase text-base sm:text-lg group-hover:text-primary transition-colors">{tx.member}</p>
                        </td>
-                       <td className="px-6 sm:px-10 py-5 sm:py-8 font-black text-lg sm:text-xl italic tracking-tighter">{tx.amount}</td>
-                       <td className="px-6 sm:px-10 py-5 sm:py-8 text-center">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8 font-black text-lg sm:text-xl italic tracking-tighter">{tx.amount}</td>
+                       <td className="px-6 lg:px-10 py-5 sm:py-8 text-center">
                           <div className={`px-3 sm:px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest italic border inline-block ${
                              tx.status === 'Completed' ? 'bg-primary/10 text-primary border-primary/20' :
                              tx.status === 'Processing' ? 'bg-primary/10 text-primary border-primary/20 animate-pulse' :
@@ -75,7 +75,7 @@ export default function AdminPaymentsPage() {
                              {tx.status}
                           </div>
                        </td>
-                       <td className="px-6 sm:px-10 py-5 sm:py-8 text-right text-on-surface-variant font-black uppercase tracking-widest text-[10px] italic">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8 text-right text-on-surface-variant font-black uppercase tracking-widest text-[10px] italic">
                           {tx.method}
                        </td>
                     </tr>

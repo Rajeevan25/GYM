@@ -47,30 +47,30 @@ export default function AdminAttendancePage() {
 
       <div className="bg-surface-container rounded-3xl overflow-hidden border border-outline-variant/10 shadow-2xl">
          <div className="overflow-x-auto">
-            <table className="w-full text-left min-w-[520px]">
+            <table className="w-full text-left min-w-[800px]">
                <thead>
                   <tr className="bg-surface-container-low/50 text-on-surface-variant text-[10px] uppercase tracking-[0.3em] font-black border-b border-outline-variant/10">
-                     <th className="px-6 sm:px-10 py-4 sm:py-6">Athlete</th>
-                     <th className="px-6 sm:px-10 py-4 sm:py-6">Branch</th>
-                     <th className="px-6 sm:px-10 py-4 sm:py-6">Method</th>
-                     <th className="px-6 sm:px-10 py-4 sm:py-6">Timestamp</th>
-                     <th className="px-6 sm:px-10 py-4 sm:py-6 text-right">Status</th>
+                     <th className="px-6 lg:px-10 py-4 sm:py-6">Athlete</th>
+                     <th className="px-6 lg:px-10 py-4 sm:py-6">Branch</th>
+                     <th className="px-6 lg:px-10 py-4 sm:py-6">Method</th>
+                     <th className="px-6 lg:px-10 py-4 sm:py-6">Timestamp</th>
+                     <th className="px-6 lg:px-10 py-4 sm:py-6 text-right">Status</th>
                   </tr>
                </thead>
                <tbody className="divide-y divide-outline-variant/5">
                   {logs.map((log, i) => (
                     <tr key={i} className="hover:bg-primary/5 transition-colors cursor-pointer group">
-                       <td className="px-6 sm:px-10 py-5 sm:py-8">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8">
                           <p className="font-black italic tracking-tighter uppercase text-base sm:text-lg group-hover:text-primary transition-colors">{log.name}</p>
                        </td>
-                       <td className="px-6 sm:px-10 py-5 sm:py-8">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8">
                           <p className="text-xs font-bold uppercase tracking-tighter">{log.branch}</p>
                        </td>
-                       <td className="px-6 sm:px-10 py-5 sm:py-8">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8">
                           <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-widest italic">{log.method}</p>
                        </td>
-                       <td className="px-6 sm:px-10 py-5 sm:py-8 font-black text-lg sm:text-xl italic tracking-tighter">{log.time}</td>
-                       <td className="px-6 sm:px-10 py-5 sm:py-8 text-right">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8 font-black text-lg sm:text-xl italic tracking-tighter">{log.time}</td>
+                       <td className="px-6 lg:px-10 py-5 sm:py-8 text-right">
                           <span className={`${log.status === 'In' ? 'bg-primary/10 text-primary border-primary/20' : 'bg-destructive/10 text-error border-destructive/20'} border px-3 sm:px-4 py-1.5 rounded-lg text-[8px] font-black uppercase tracking-widest italic`}>
                              {log.status === 'In' ? 'ACTIVE' : 'TERMINATED'}
                           </span>

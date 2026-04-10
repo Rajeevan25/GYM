@@ -35,20 +35,20 @@ export default function AdminMembersPage() {
 
       <div className="bg-surface-container rounded-3xl overflow-hidden border border-outline-variant/10 shadow-2xl">
          <div className="overflow-x-auto">
-            <table className="w-full text-left min-w-[600px]">
+            <table className="w-full text-left min-w-[850px]">
                <thead>
                   <tr className="bg-surface-container-low/50 text-on-surface-variant text-[10px] uppercase tracking-[0.3em] font-black border-b border-outline-variant/10">
-                     <th className="px-4 sm:px-10 py-4 sm:py-6">Athlete Profile</th>
-                     <th className="px-4 sm:px-10 py-4 sm:py-6">Tier Level</th>
-                     <th className="px-4 sm:px-10 py-4 sm:py-6">Branch Protocol</th>
-                     <th className="px-4 sm:px-10 py-4 sm:py-6">Status</th>
-                     <th className="px-4 sm:px-10 py-4 sm:py-6 text-right">Actions</th>
+                     <th className="px-6 lg:px-10 py-4 lg:py-6">Athlete Profile</th>
+                     <th className="px-6 lg:px-10 py-4 lg:py-6 text-center">Tier Level</th>
+                     <th className="px-6 lg:px-10 py-4 lg:py-6">Branch Protocol</th>
+                     <th className="px-6 lg:px-10 py-4 lg:py-6">Status</th>
+                     <th className="px-6 lg:px-10 py-4 lg:py-6 text-right">Actions</th>
                   </tr>
                </thead>
                <tbody className="divide-y divide-outline-variant/5">
                   {members.map((member, i) => (
                     <tr key={i} className="hover:bg-primary/5 transition-colors cursor-pointer">
-                       <td className="px-6 sm:px-10 py-5 sm:py-8">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8">
                           <div className="flex items-center gap-3 sm:gap-4">
                              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-surface-container-high flex items-center justify-center font-black italic text-primary border border-primary/20 text-sm">
                                 {member.name.split(' ').map(n => n[0]).join('')}
@@ -59,7 +59,7 @@ export default function AdminMembersPage() {
                              </div>
                           </div>
                        </td>
-                       <td className="px-6 sm:px-10 py-5 sm:py-8">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8">
                           <span className={`text-[10px] font-black tracking-widest uppercase italic px-3 sm:px-4 py-1.5 rounded-full ${
                              member.tier === 'Gold' ? 'bg-primary/20 text-primary border border-primary/30' :
                              member.tier === 'Pro' ? 'bg-primary/20 text-primary border border-primary/30' :
@@ -68,11 +68,11 @@ export default function AdminMembersPage() {
                              {member.tier}
                           </span>
                        </td>
-                       <td className="px-6 sm:px-10 py-5 sm:py-8">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8">
                           <p className="text-xs sm:text-sm font-bold uppercase tracking-tighter">{member.branch}</p>
                           <p className="text-[8px] text-on-surface-variant font-black uppercase tracking-widest mt-1">Joined {member.joined}</p>
                        </td>
-                       <td className="px-6 sm:px-10 py-5 sm:py-8">
+                       <td className="px-6 lg:px-10 py-5 sm:py-8">
                           <div className="flex items-center gap-2">
                              <span className={`w-2 h-2 rounded-full ${
                                 member.status === 'Active' ? 'bg-primary' :
@@ -81,7 +81,7 @@ export default function AdminMembersPage() {
                              <span className="text-[10px] font-black uppercase tracking-widest italic">{member.status}</span>
                           </div>
                        </td>
-                       <td className="px-4 sm:px-10 py-5 sm:py-8 text-right">
+                       <td className="px-4 lg:px-10 py-5 sm:py-8 text-right">
                           <button className="p-2 sm:p-3 bg-surface-container-high rounded-xl text-on-surface-variant hover:text-primary transition-colors border border-white/10">
                              <span className="material-symbols-outlined text-xl">more_vert</span>
                           </button>
